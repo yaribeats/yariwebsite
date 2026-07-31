@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookingPanel } from "../../components/booking-panel";
+import { SvgIcon } from "../../components/svg-icon";
 import { blogPosts } from "../../site-data";
 
 export function generateStaticParams() {
@@ -58,7 +59,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <article className="article-page shell">
         <header className="article-header">
-          <Link className="text-link" href="/blog">← All articles</Link>
+          <Link className="text-link" href="/blog"><SvgIcon name="arrow-left" /> All articles</Link>
           <p className="page-marker">{post.category} / {post.readTime}</p>
           <h1>{post.title}</h1>
           <p className="article-intro">{post.intro}</p>
@@ -82,8 +83,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </section>
           ) : null}
           <div className="article-next-links">
-            <Link className="button button-orange" href="/beats">Listen to the beats <span aria-hidden="true">→</span></Link>
-            <Link className="text-link" href="/videos">Watch the process <span aria-hidden="true">→</span></Link>
+            <Link className="button button-orange" href="/beats">Listen to the beats <SvgIcon name="arrow-right" /></Link>
+            <Link className="text-link" href="/videos">Watch the process <SvgIcon name="arrow-right" /></Link>
           </div>
         </div>
       </article>

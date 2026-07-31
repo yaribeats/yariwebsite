@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BookingPanel } from "../components/booking-panel";
 import { MotionIn } from "../components/motion-in";
+import { SvgIcon } from "../components/svg-icon";
 
 export const metadata: Metadata = {
   title: "About",
@@ -71,7 +72,7 @@ export default function AboutPage() {
               </li>
             </ol>
             <Link className="text-link" href="/beats">
-              Hear the current beats <span aria-hidden="true">→</span>
+              Hear the current beats <SvgIcon name="arrow-right" />
             </Link>
           </div>
         </div>

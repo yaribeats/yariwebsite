@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { bookingUrl, navItems } from "../site-data";
 import { SocialIcons } from "./social-icons";
+import { SvgIcon } from "./svg-icon";
 
 export function SiteFooter() {
   return (
@@ -22,7 +23,7 @@ export function SiteFooter() {
           </Link>
         ))}
         <a href={bookingUrl} target="_blank" rel="noreferrer">
-          Book a call ↗
+          Book a call <SvgIcon name="arrow-up-right" />
         </a>
       </div>
       <div className="footer-bottom">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BookingPanel } from "../components/booking-panel";
 import { MotionIn } from "../components/motion-in";
+import { SvgIcon } from "../components/svg-icon";
 import { blogPosts } from "../site-data";
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function BlogPage() {
               <div className="blog-card-meta"><span>{String(index + 1).padStart(2, "0")}</span><span>{post.category} / {post.readTime}</span></div>
               <h2><Link href={`/blog/${post.slug}`}>{post.title}</Link></h2>
               <p>{post.excerpt}</p>
-              <Link className="text-link" href={`/blog/${post.slug}`}>Read the guide <span aria-hidden="true">→</span></Link>
+              <Link className="text-link" href={`/blog/${post.slug}`}>Read the guide <SvgIcon name="arrow-right" /></Link>
             </article>
           ))}
         </div>

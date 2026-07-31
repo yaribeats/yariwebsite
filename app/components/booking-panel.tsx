@@ -1,4 +1,5 @@
 import { bookingUrl } from "../site-data";
+import { SvgIcon } from "./svg-icon";
 
 export function BookingPanel({
   headline = "Your next record starts with a conversation.",
@@ -16,7 +17,7 @@ export function BookingPanel({
         rel="noreferrer"
       >
         Book the production call
-        <span aria-hidden="true">↗</span>
+        <SvgIcon name="arrow-up-right" />
       </a>
     </section>
   );

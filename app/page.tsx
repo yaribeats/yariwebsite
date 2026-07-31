@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BeatDeck } from "./components/beat-deck";
 import { BookingPanel } from "./components/booking-panel";
 import { MotionIn } from "./components/motion-in";
+import { SvgIcon } from "./components/svg-icon";
 import { VideoArchive } from "./components/video-archive";
 import { bookingUrl, tracks, videos } from "./site-data";
 
@@ -88,10 +89,10 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Book a production call <span aria-hidden="true">↗</span>
+                Book a production call <SvgIcon name="arrow-up-right" />
               </a>
               <Link className="text-link" href="/beats">
-                Hear the beats <span aria-hidden="true">→</span>
+                Hear the beats <SvgIcon name="arrow-right" />
               </Link>
             </div>
           </MotionIn>
@@ -128,7 +129,7 @@ export default function Home() {
           </div>
           <BeatDeck items={tracks} compact />
           <Link className="text-link dark-link" href="/beats">
-            Open the full beat page <span aria-hidden="true">→</span>
+            Open the full beat page <SvgIcon name="arrow-right" />
           </Link>
         </div>
       </section>
@@ -162,7 +163,7 @@ export default function Home() {
         <div className="video-tease-heading">
           <h2>See the process in motion.</h2>
           <Link href="/videos" className="text-link">
-            Watch the archive <span aria-hidden="true">→</span>
+            Watch the archive <SvgIcon name="arrow-right" />
           </Link>
         </div>
         <div className="home-video-archive">
@@ -208,17 +209,17 @@ export default function Home() {
           <Link href="/blog/fl-studio-drum-programming" className="blog-preview-card">
             <span>01</span>
             <h3>Drum programming that leaves room for the vocal</h3>
-            <span className="text-link">Read the guide →</span>
+            <span className="text-link">Read the guide <SvgIcon name="arrow-right" /></span>
           </Link>
           <Link href="/blog/fl-studio-mixing-headroom" className="blog-preview-card">
             <span>02</span>
             <h3>How to keep an FL Studio beat from getting crowded</h3>
-            <span className="text-link">Read the guide →</span>
+            <span className="text-link">Read the guide <SvgIcon name="arrow-right" /></span>
           </Link>
           <Link href="/blog/fl-studio-arrangement-workflow" className="blog-preview-card">
             <span>03</span>
             <h3>A practical arrangement workflow for finishing ideas</h3>
-            <span className="text-link">Read the guide →</span>
+            <span className="text-link">Read the guide <SvgIcon name="arrow-right" /></span>
           </Link>
         </div>
       </section>

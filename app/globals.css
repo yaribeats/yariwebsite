@@ -334,10 +334,16 @@ p {
 
 .button-icon {
   display: inline-flex;
+  flex: 0 0 auto;
   width: 18px;
   height: 18px;
   align-items: center;
   justify-content: center;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
 }
 
 .header-actions {
@@ -1415,6 +1421,9 @@ p {
 }
 
 .footer-links a:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   margin-left: auto;
   color: var(--orange);
 }
