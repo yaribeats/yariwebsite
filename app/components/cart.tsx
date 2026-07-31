@@ -9,18 +9,21 @@ type CartItem = {
 };
 
 export function Cart() {
-  const [items, setItems] = useState<CartItem[]>(() => {
-    if (typeof window === "undefined") return [];
-    try {
-      const raw = localStorage.getItem("yari:cart");
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  });
+  const [items, setItems] = useState<CartItem[]>([]);
   const [open, setOpen] = useState(false);
   const [jingle, setJingle] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      try {
+        const raw = localStorage.getItem("yari:cart");
+        if (raw) setItems(JSON.parse(raw));
+      } catch {
+        setItems([]);
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const handler = (event: Event) => {
