@@ -7,9 +7,9 @@ import { MotionIn } from "./components/motion-in";
 import { bookingUrl, tracks, videos } from "./site-data";
 
 export const metadata: Metadata = {
-  title: "YARI.WTF — Beats with fingerprints on them",
+  title: "YARI.WTF — Beats and production",
   description:
-    "Original production, candid process, and a direct line to build your next record with Yari.",
+    "Hear YARI.WTF beats, watch the process, and book production for your next record.",
 };
 
 export default function Home() {
@@ -18,15 +18,15 @@ export default function Home() {
       <section className="home-hero">
         <div className="hero-grid shell">
           <MotionIn className="hero-copy">
-            <p className="hero-stamp">Producer / Atlanta / Anywhere the song goes</p>
+            <p className="hero-stamp">Producer / Atlanta / Remote</p>
             <h1>
               Make the song
               <br />
               they can’t <span>file away.</span>
             </h1>
             <p className="hero-intro">
-              Production with movement, color, and enough room for your voice to
-              become the center of gravity.
+              Beats and production for artists who want a clear direction and a
+              record that still sounds like them.
             </p>
             <div className="hero-actions">
               <a
@@ -62,21 +62,15 @@ export default function Home() {
             </div>
           </MotionIn>
         </div>
-        <div className="ticker" aria-hidden="true">
-          <div>
-            ORIGINAL PRODUCTION ★ SHARP DRUMS ★ STRANGE COLORS ★ ORIGINAL
-            PRODUCTION ★ SHARP DRUMS ★ STRANGE COLORS ★
-          </div>
-        </div>
       </section>
 
       <section className="featured-beat">
         <div className="shell">
           <div className="section-split">
-            <h2>Press play before you read another word.</h2>
+            <h2>Start with the music.</h2>
             <p>
-              Three current ideas. No tags talking over the feeling. Preview the
-              work, then bring your own world to the call.
+              Three current ideas. Listen through, save what fits, and bring the
+              strongest starting point to the conversation.
             </p>
           </div>
           <BeatDeck items={tracks} compact />
@@ -88,10 +82,10 @@ export default function Home() {
 
       <section className="photo-story shell">
         <div className="photo-story-copy">
-          <h2>Outside feeds the studio.</h2>
+          <h2>The room is part of the process.</h2>
           <p>
-            The city, the clothes, the joke that only works at full volume—none
-            of it is separate from the sound.
+            Yari builds from what is actually happening in the room: the tempo,
+            the voice, and the details that make the record specific.
           </p>
         </div>
         <div className="photo-crossing">
@@ -108,12 +102,12 @@ export default function Home() {
             loading="lazy"
           />
         </div>
-        <p className="photo-note">I’ll be your everything.</p>
+        <p className="photo-note">Built around your voice.</p>
       </section>
 
       <section className="video-tease shell">
         <div className="video-tease-heading">
-          <h2>The process is allowed to have a pulse.</h2>
+          <h2>See the process in motion.</h2>
           <Link href="/videos" className="text-link">
             Watch the archive <span aria-hidden="true">→</span>
           </Link>
@@ -129,6 +123,33 @@ export default function Home() {
               <span>{index === 0 ? "A beat catches" : "The room reacts"}</span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="blog-tease shell">
+        <div className="blog-tease-heading">
+          <div>
+            <p className="page-marker">Notes from the session</p>
+            <h2>Useful FL Studio lessons.</h2>
+          </div>
+          <p>Short, practical guides for getting better ideas out of the tools you already use.</p>
+        </div>
+        <div className="blog-preview-grid">
+          <Link href="/blog/fl-studio-drum-programming" className="blog-preview-card">
+            <span>01</span>
+            <h3>Drum programming that leaves room for the vocal</h3>
+            <span className="text-link">Read the guide →</span>
+          </Link>
+          <Link href="/blog/fl-studio-mixing-headroom" className="blog-preview-card">
+            <span>02</span>
+            <h3>How to keep an FL Studio beat from getting crowded</h3>
+            <span className="text-link">Read the guide →</span>
+          </Link>
+          <Link href="/blog/fl-studio-arrangement-workflow" className="blog-preview-card">
+            <span>03</span>
+            <h3>A practical arrangement workflow for finishing ideas</h3>
+            <span className="text-link">Read the guide →</span>
+          </Link>
         </div>
       </section>
 

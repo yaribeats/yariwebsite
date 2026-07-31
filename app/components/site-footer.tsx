@@ -10,9 +10,9 @@ export function SiteFooter() {
           YARI.WTF
         </Link>
         <p>
-          Beats with fingerprints on them.
+          Beats with a point of view.
           <br />
-          Built for artists, not algorithms.
+          Built around the artist.
         </p>
       </div>
       <div className="footer-links">

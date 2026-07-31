@@ -8,7 +8,7 @@ import { tracks } from "../site-data";
 export const metadata: Metadata = {
   title: "Beats",
   description:
-    "Preview three current YARI.WTF productions: Hybrid, She’s Home, and Red.",
+    "Preview current YARI.WTF productions and save a starting point for your next record.",
 };
 
 export default function BeatsPage() {
@@ -18,10 +18,10 @@ export default function BeatsPage() {
         <div className="shell page-hero-grid">
           <MotionIn className="page-hero-copy">
             <p className="page-marker">Current rotation</p>
-            <h1>Pick the feeling. Bring the story.</h1>
+            <h1>Find a strong starting point.</h1>
             <p>
-              These are starting points, not boxes. If one opens a door, the
-              production call is where we build the room behind it.
+              Preview the current beats, save the ones that fit, and use the
+              production call to shape the record around your voice.
             </p>
           </MotionIn>
           <MotionIn className="page-hero-image" delay={0.1}>
@@ -36,8 +36,8 @@ export default function BeatsPage() {
 
       <section className="beats-list shell">
         <div className="beats-list-heading">
-          <p>Preview only</p>
-          <p>Headphones encouraged</p>
+          <p>Current beats</p>
+          <p>Preview / save / license</p>
         </div>
         <BeatDeck items={tracks} />
         <div className="beats-afterword">
@@ -45,11 +45,11 @@ export default function BeatsPage() {
             Need a different tempo, a custom direction, or production around
             your voice?
           </p>
-          <span>That’s the point of the call.</span>
+          <span>Bring it to the call.</span>
         </div>
       </section>
 
-      <BookingPanel headline="Don’t shop for a beat. Build the record." />
+      <BookingPanel headline="Let’s build the record around you." />
     </main>
   );
 }

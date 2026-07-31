@@ -22,6 +22,14 @@ export function BeatDeck({
   const [times, setTimes] = useState<Record<string, number>>({});
   const [durations, setDurations] = useState<Record<string, number>>({});
 
+  const addToCart = (track: Track) => {
+    window.dispatchEvent(
+      new CustomEvent("yari:add-to-cart", {
+        detail: { id: track.id, title: track.title, buyUrl: track.buyUrl },
+      }),
+    );
+  };
+
   const toggleTrack = async (track: Track) => {
     const selected = audioRefs.current[track.id];
     if (!selected) return;
@@ -56,61 +64,77 @@ export function BeatDeck({
             className={`track-row ${isPlaying ? "is-playing" : ""}`}
             key={track.id}
           >
-            <button
-              className="play-button"
-              type="button"
-              onClick={() => toggleTrack(track)}
-              aria-label={`${isPlaying ? "Pause" : "Play"} ${track.title}`}
-            >
-              <span aria-hidden="true">{isPlaying ? "Ⅱ" : "▶"}</span>
-            </button>
+            <div className="track-header">
+              <div className="track-control-group">
+                <button
+                  className="play-button"
+                  type="button"
+                  onClick={() => toggleTrack(track)}
+                  aria-label={`${isPlaying ? "Pause" : "Play"} ${track.title}`}
+                >
+                  <span aria-hidden="true">{isPlaying ? "Ⅱ" : "▶"}</span>
+                </button>
+                <div className="track-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+              </div>
 
-            <div className="track-index" aria-hidden="true">
-              {String(index + 1).padStart(2, "0")}
+              <div className="track-copy">
+                <h2>{track.title}</h2>
+                <p>{track.note}</p>
+              </div>
+
+              <div className="track-meta">
+                <span>{track.bpm} BPM</span>
+                <span>{track.key}</span>
+              </div>
             </div>
 
-            <div className="track-copy">
-              <h2>{track.title}</h2>
-              <p>{track.note}</p>
-            </div>
+            <div className="track-footer">
+              <div className="track-progress">
+                <label className="sr-only" htmlFor={`seek-${track.id}`}>
+                  Seek through {track.title}
+                </label>
+                <input
+                  id={`seek-${track.id}`}
+                  type="range"
+                  min="0"
+                  max={duration || 0}
+                  step="0.1"
+                  value={Math.min(currentTime, duration || 0)}
+                  disabled={!duration}
+                  onChange={(event) => {
+                    const nextTime = Number(event.target.value);
+                    const audio = audioRefs.current[track.id];
+                    if (audio) audio.currentTime = nextTime;
+                    setTimes((current) => ({ ...current, [track.id]: nextTime }));
+                  }}
+                  style={
+                    {
+                      "--progress": duration
+                        ? `${(currentTime / duration) * 100}%`
+                        : "0%",
+                    } as React.CSSProperties
+                  }
+                />
+                <span aria-label={`${formatTime(currentTime)} elapsed`}>
+                  {formatTime(currentTime)}
+                </span>
+                <span aria-label={`${formatTime(duration)} total`}>
+                  {formatTime(duration)}
+                </span>
+              </div>
 
-            <div className="track-meta">
-              <span>{track.bpm} BPM</span>
-              <span>{track.key}</span>
-            </div>
-
-            <div className="track-progress">
-              <label className="sr-only" htmlFor={`seek-${track.id}`}>
-                Seek through {track.title}
-              </label>
-              <input
-                id={`seek-${track.id}`}
-                type="range"
-                min="0"
-                max={duration || 0}
-                step="0.1"
-                value={Math.min(currentTime, duration || 0)}
-                disabled={!duration}
-                onChange={(event) => {
-                  const nextTime = Number(event.target.value);
-                  const audio = audioRefs.current[track.id];
-                  if (audio) audio.currentTime = nextTime;
-                  setTimes((current) => ({ ...current, [track.id]: nextTime }));
-                }}
-                style={
-                  {
-                    "--progress": duration
-                      ? `${(currentTime / duration) * 100}%`
-                      : "0%",
-                  } as React.CSSProperties
-                }
-              />
-              <span aria-label={`${formatTime(currentTime)} elapsed`}>
-                {formatTime(currentTime)}
-              </span>
-              <span aria-label={`${formatTime(duration)} total`}>
-                {formatTime(duration)}
-              </span>
+              <div className="track-actions">
+                <button
+                  className="button button-orange track-buy-button"
+                  type="button"
+                  onClick={() => addToCart(track)}
+                  aria-label={`Add ${track.title} to cart`}
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
 
             <audio

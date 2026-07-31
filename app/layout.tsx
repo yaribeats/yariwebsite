@@ -6,15 +6,17 @@ import "@fontsource/karla/700.css";
 import "./globals.css";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
+import { Cart } from "./components/cart";
+import { CalendarWidget } from "./components/calendar-widget";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yari.wtf"),
   title: {
-    default: "YARI.WTF — Producer",
+    default: "YARI.WTF — Beats and production",
     template: "%s | YARI.WTF",
   },
   description:
-    "Original beats, candid process, and production built around the artist.",
+    "Hear YARI.WTF beats, watch the process, and book production built around the artist.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -22,23 +24,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "YARI.WTF",
-    title: "YARI.WTF — Beats with fingerprints on them",
+    title: "YARI.WTF — Beats and production",
     description:
-      "Original production, candid process, and a direct line to build your next record with Yari.",
+      "Hear YARI.WTF beats, watch the process, and book production built around the artist.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "YARI.WTF — Beats with fingerprints on them",
+        alt: "YARI.WTF — Beats and production",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "YARI.WTF — Beats with fingerprints on them",
+    title: "YARI.WTF — Beats and production",
     description:
-      "Original production, candid process, and a direct line to build your next record with Yari.",
+      "Hear YARI.WTF beats, watch the process, and book production built around the artist.",
     images: ["/og.png"],
   },
 };
@@ -53,6 +55,8 @@ export default function RootLayout({
       <body>
         <SiteHeader />
         {children}
+        <Cart />
+        <CalendarWidget />
         <SiteFooter />
       </body>
     </html>

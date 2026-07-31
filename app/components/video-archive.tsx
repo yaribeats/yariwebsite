@@ -1,39 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import type { VideoItem } from "../site-data";
 
 export function VideoArchive({ items }: { items: VideoItem[] }) {
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
 
-  useEffect(() => {
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    const nodes = Object.values(videoRefs.current).filter(
-      (video): video is HTMLVideoElement => Boolean(video),
-    );
-
-    if (reduceMotion) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target as HTMLVideoElement;
-          if (entry.isIntersecting && entry.intersectionRatio > 0.65) {
-            video.muted = true;
-            void video.play().catch(() => undefined);
-          } else {
-            video.pause();
-          }
-        });
-      },
-      { threshold: [0, 0.65, 1] },
-    );
-
-    nodes.forEach((video) => observer.observe(video));
-    return () => observer.disconnect();
-  }, []);
+  const handlePlay = (activeId: string) => {
+    Object.entries(videoRefs.current).forEach(([id, video]) => {
+      if (video && id !== activeId && !video.paused) {
+        video.pause();
+      }
+    });
+  };
 
   return (
     <div className="video-archive">
@@ -52,6 +31,7 @@ export function VideoArchive({ items }: { items: VideoItem[] }) {
               controls
               preload="metadata"
               aria-label={`${video.title}. ${video.caption}`}
+              onPlay={() => handlePlay(video.id)}
             />
           </div>
           <div className="video-caption">

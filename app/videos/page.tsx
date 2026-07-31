@@ -17,10 +17,10 @@ export default function VideosPage() {
         <div className="shell">
           <MotionIn className="video-hero-copy">
             <p className="page-marker">Camera roll / studio floor</p>
-            <h1>The beat isn’t finished until the room moves.</h1>
+            <h1>Watch how the ideas take shape.</h1>
             <p>
-              Process clips, happy accidents, and the exact second an idea
-              stops being polite.
+              Studio clips, rough arrangements, and the decisions behind the
+              finished beat.
             </p>
           </MotionIn>
         </div>
@@ -30,7 +30,7 @@ export default function VideosPage() {
         <VideoArchive items={videos} />
       </section>
 
-      <BookingPanel headline="Bring the voice. We’ll find the pressure point." />
+      <BookingPanel headline="Bring the voice. We’ll find the direction." />
     </main>
   );
 }
