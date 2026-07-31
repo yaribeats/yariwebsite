@@ -100,7 +100,7 @@ export default function Home() {
             <div className="hero-image-primary">
               <img
                 src="/images/yari-city.jpg"
-                alt="Yari in a black sweatshirt and orange streetwear beside tall city windows"
+                alt="Yari in black streetwear and sunglasses by city lights"
               />
             </div>
             <div className="hero-image-secondary">

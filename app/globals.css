@@ -987,18 +987,23 @@ p {
   grid-column: 2;
   grid-row: 1;
   width: min(100%, 680px);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 0.9;
   justify-self: start;
   transform: rotate(-2deg);
+}
+
+.photo-crossing img {
+  object-position: center top;
 }
 
 .photo-storefront {
   grid-column: 2;
   grid-row: 1;
-  width: min(42%, 300px);
+  width: min(34%, 240px);
   aspect-ratio: 0.8;
-  align-self: start;
+  align-self: end;
   justify-self: end;
+  margin-bottom: clamp(24px, 4vw, 58px);
   border: 10px solid var(--orange);
   transform: rotate(3deg);
   z-index: 2;
@@ -1864,17 +1869,22 @@ p {
   }
 
   .photo-crossing {
-    aspect-ratio: 0.8;
+    width: 100%;
+    aspect-ratio: 0.9;
   }
 
   .photo-storefront {
-    width: 75%;
-    margin: -70px 0 0 auto;
+    width: min(72%, 300px);
+    margin: -28px 0 0 auto;
+    align-self: end;
   }
 
   .photo-sticker {
-    right: 8%;
-    bottom: clamp(74px, 18vw, 130px);
+    position: relative;
+    right: auto;
+    bottom: auto;
+    justify-self: end;
+    margin: -16px 8% 0 0;
   }
 
   .video-tease-heading {
@@ -1882,22 +1892,22 @@ p {
   }
 
   .home-video-archive .video-archive {
-    justify-content: flex-start;
-    display: flex;
-    gap: 18px;
-    overflow-x: auto;
-    padding-bottom: 18px;
-    scroll-snap-type: x mandatory;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 34px;
+    overflow: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
   }
 
   .home-video-archive .video-entry {
-    flex: 0 0 min(78vw, 330px);
-    width: min(78vw, 330px);
-    scroll-snap-align: start;
+    width: min(100%, 340px);
+    scroll-snap-align: none;
   }
 
   .home-video-archive .video-entry:nth-child(2) {
-    margin-top: 46px;
+    margin-top: 0;
   }
 
   .home-video-archive .video-frame {
@@ -1909,7 +1919,7 @@ p {
   }
 
   .home-video-archive .video-entry:nth-child(2) {
-    scroll-snap-align: start;
+    scroll-snap-align: none;
   }
 
   .booking-panel {
