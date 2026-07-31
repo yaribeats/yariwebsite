@@ -21,7 +21,7 @@ export default function AboutPage() {
         <MotionIn className="about-portrait" delay={0.1}>
           <img
             src="/images/yari-close.jpg"
-            alt="Portrait of Yari wearing a black and pink knit hat"
+            alt="Portrait of Yari wearing a black and orange knit hat"
           />
         </MotionIn>
         <div className="about-intro">

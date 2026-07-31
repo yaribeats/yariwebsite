@@ -41,13 +41,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     })),
   } : null;
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://yari.wtf" },
+      { "@type": "ListItem", position: 2, name: "Articles", item: "https://yari.wtf/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://yari.wtf/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /> : null}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <article className="article-page shell">
         <header className="article-header">
-          <Link className="text-link" href="/blog">← All notes</Link>
+          <Link className="text-link" href="/blog">← All articles</Link>
           <p className="page-marker">{post.category} / {post.readTime}</p>
           <h1>{post.title}</h1>
           <p className="article-intro">{post.intro}</p>
@@ -71,7 +82,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </section>
           ) : null}
           <div className="article-next-links">
-            <Link className="button button-pink" href="/beats">Listen to the beats <span aria-hidden="true">→</span></Link>
+            <Link className="button button-orange" href="/beats">Listen to the beats <span aria-hidden="true">→</span></Link>
             <Link className="text-link" href="/videos">Watch the process <span aria-hidden="true">→</span></Link>
           </div>
         </div>

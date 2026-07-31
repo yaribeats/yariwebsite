@@ -39,7 +39,7 @@ test("server-renders the blog index and an article", async () => {
   const index = await render("/blog");
   assert.equal(index.status, 200);
   const indexHtml = await index.text();
-  assert.match(indexHtml, /FL Studio Notes/);
+  assert.match(indexHtml, /FL Studio Articles/);
   assert.match(indexHtml, /Drum programming that leaves room for the vocal/);
 
   const article = await render("/blog/fl-studio-drum-programming");

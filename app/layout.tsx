@@ -12,11 +12,21 @@ import { CalendarWidget } from "./components/calendar-widget";
 export const metadata: Metadata = {
   metadataBase: new URL("https://yari.wtf"),
   title: {
-    default: "YARI.WTF — Beats and production",
+    default: "YARI.WTF | Atlanta Music Producer, Beats & FL Studio Lessons",
     template: "%s | YARI.WTF",
   },
   description:
-    "Hear YARI.WTF beats, watch the process, and book production built around the artist.",
+    "YARI.WTF is an Atlanta-based music producer, beat maker, and FL Studio teacher offering beats, custom production, and remote sessions.",
+  keywords: [
+    "Atlanta music producer",
+    "Atlanta beat maker",
+    "FL Studio lessons",
+    "music production lessons",
+    "custom beat production",
+  ],
+  alternates: {
+    canonical: "https://yari.wtf",
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -24,23 +34,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "YARI.WTF",
-    title: "YARI.WTF — Beats and production",
+    title: "YARI.WTF | Atlanta Music Producer, Beats & FL Studio Lessons",
     description:
-      "Hear YARI.WTF beats, watch the process, and book production built around the artist.",
+      "Atlanta-based music production, beats, custom sessions, and FL Studio lessons from YARI.WTF.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "YARI.WTF — Beats and production",
+        alt: "YARI.WTF Atlanta music producer and beat maker",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "YARI.WTF — Beats and production",
+    title: "YARI.WTF | Atlanta Music Producer, Beats & FL Studio Lessons",
     description:
-      "Hear YARI.WTF beats, watch the process, and book production built around the artist.",
+      "Atlanta-based music production, beats, custom sessions, and FL Studio lessons from YARI.WTF.",
     images: ["/og.png"],
   },
 };

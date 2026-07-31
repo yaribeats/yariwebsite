@@ -5,7 +5,7 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/beats", label: "Beats" },
   { href: "/videos", label: "Videos" },
-  { href: "/blog", label: "Notes" },
+  { href: "/blog", label: "Articles" },
   { href: "/about", label: "About" },
 ] as const;
 
@@ -17,10 +17,6 @@ export const socialLinks = [
   {
     platform: "TikTok",
     href: "https://www.tiktok.com/@yaribeats",
-  },
-  {
-    platform: "YouTube",
-    href: "https://www.youtube.com/@yaribeats",
   },
 ] as const;
 
