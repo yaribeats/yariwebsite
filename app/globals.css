@@ -955,14 +955,18 @@ p {
 
 .photo-story {
   position: relative;
-  min-height: 1050px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: clamp(34px, 7vw, 96px);
   padding-block: clamp(90px, 11vw, 150px);
 }
 
 .photo-story-copy {
   position: relative;
-  z-index: 4;
-  width: min(520px, 70%);
+  z-index: 2;
+  max-width: 540px;
+  padding: clamp(24px, 4vw, 42px) 0;
 }
 
 .photo-story-copy p {
@@ -974,31 +978,36 @@ p {
 
 .photo-crossing,
 .photo-storefront {
-  position: absolute;
+  position: relative;
   overflow: hidden;
+  background: var(--surface);
 }
 
 .photo-crossing {
-  top: 32%;
-  left: 4%;
-  width: 54%;
-  aspect-ratio: 0.8;
+  grid-column: 2;
+  grid-row: 1;
+  width: min(100%, 680px);
+  aspect-ratio: 4 / 5;
+  justify-self: start;
   transform: rotate(-2deg);
 }
 
 .photo-storefront {
-  top: 14%;
-  right: 3%;
-  width: 36%;
+  grid-column: 2;
+  grid-row: 1;
+  width: min(42%, 300px);
   aspect-ratio: 0.8;
+  align-self: start;
+  justify-self: end;
   border: 10px solid var(--orange);
   transform: rotate(3deg);
+  z-index: 2;
 }
 
 .photo-sticker {
   position: absolute;
-  right: 5%;
-  bottom: 11%;
+  right: clamp(18px, 4vw, 58px);
+  bottom: clamp(84px, 11vw, 150px);
   z-index: 3;
   padding: 10px 16px;
   background: var(--orange);
@@ -1838,20 +1847,19 @@ p {
   }
 
   .photo-story {
-    min-height: auto;
-    display: grid;
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
   .photo-story-copy {
-    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
 
   .photo-crossing,
   .photo-storefront {
-    position: relative;
-    inset: auto;
+    grid-column: 1;
+    grid-row: auto;
     width: 88%;
   }
 
@@ -1866,7 +1874,7 @@ p {
 
   .photo-sticker {
     right: 8%;
-    bottom: 9%;
+    bottom: clamp(74px, 18vw, 130px);
   }
 
   .video-tease-heading {
