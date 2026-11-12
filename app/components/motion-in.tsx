@@ -1,8 +1,9 @@
-"use client";
+import type { CSSProperties, ReactNode } from "react";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
-
+/**
+ * Entrance animation in pure CSS. Content is visible in the server HTML (good for
+ * crawlers and Largest Contentful Paint) and needs no JavaScript to appear.
+ */
 export function MotionIn({
   children,
   className = "",
@@ -12,20 +13,9 @@ export function MotionIn({
   className?: string;
   delay?: number;
 }) {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <motion.div
-      className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 24, filter: "blur(8px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{
-        duration: reduceMotion ? 0 : 0.65,
-        delay: reduceMotion ? 0 : delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-    >
+    <div className={`motion-in ${className}`.trim()} style={{ "--motion-delay": `${delay}s` } as CSSProperties}>
       {children}
-    </motion.div>
+    </div>
   );
 }

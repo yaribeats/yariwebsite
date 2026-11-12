@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "../lib/seo";
 import Link from "next/link";
 import { BookingPanel } from "../components/booking-panel";
 import { MotionIn } from "../components/motion-in";
 import { SvgIcon } from "../components/svg-icon";
 import { blogPosts } from "../site-data";
 
-export const metadata: Metadata = {
-  title: "FL Studio Articles",
-  description: "Practical FL Studio beat-making articles from YARI.WTF for artists and producers.",
-};
+export const metadata: Metadata = pageMeta({
+  path: "/blog",
+  title: "FL Studio Tips: Drums, Mixing & Arrangement",
+  description:
+    "Free FL Studio tips from Atlanta producer Yari: drum programming, mixing headroom, and arrangement workflows that finish beats.",
+});
 
 export default function BlogPage() {
   return (

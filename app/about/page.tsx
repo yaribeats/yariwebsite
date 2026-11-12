@@ -1,15 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import { pageMeta } from "../lib/seo";
 import Link from "next/link";
 import { BookingPanel } from "../components/booking-panel";
 import { MotionIn } from "../components/motion-in";
 import { SvgIcon } from "../components/svg-icon";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMeta({
+  path: "/about",
+  title: "About Yari: Atlanta Type Beat Producer",
   description:
-    "Meet Yari: a producer interested in personality, movement, and records that refuse the obvious answer.",
-};
+    "Meet Yari, an Atlanta producer making underground, rage, and Detroit type beats and producing songs for independent artists in person or remote.",
+});
 
 export default function AboutPage() {
   return (

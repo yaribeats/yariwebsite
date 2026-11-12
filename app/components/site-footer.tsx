@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { bookingUrl, navItems } from "../site-data";
+import { lanes, navItems } from "../site-data";
+import { BuyLink } from "./buy-link";
 import { SocialIcons } from "./social-icons";
 import { SvgIcon } from "./svg-icon";
 
@@ -11,21 +12,29 @@ export function SiteFooter() {
           YARI.WTF
         </Link>
         <p>
-          Beats with a point of view.
+          Underground, rage, and Detroit type beats
           <br />
-          Built around the artist.
+          by Yari, an Atlanta producer.
         </p>
       </div>
-      <div className="footer-links">
+      <nav className="footer-links" aria-label="Footer">
         {navItems.map((item) => (
           <Link key={item.href} href={item.href}>
             {item.label}
           </Link>
         ))}
-        <a href={bookingUrl} target="_blank" rel="noreferrer">
-          Book a call <SvgIcon name="arrow-up-right" />
-        </a>
-      </div>
+        <Link href="/start">Talk to Yari</Link>
+        <BuyLink placement="footer" className="footer-buy">
+          Buy beats <SvgIcon name="arrow-up-right" />
+        </BuyLink>
+      </nav>
+      <nav className="footer-lanes" aria-label="Type beats">
+        {lanes.map((lane) => (
+          <Link key={lane.slug} href={`/type-beats/${lane.slug}`}>
+            {lane.title}
+          </Link>
+        ))}
+      </nav>
       <div className="footer-bottom">
         <SocialIcons />
         <span>© {new Date().getFullYear()} YARI.WTF</span>

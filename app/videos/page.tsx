@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "../lib/seo";
 import { BookingPanel } from "../components/booking-panel";
 import { MotionIn } from "../components/motion-in";
 import { VideoArchive } from "../components/video-archive";
 import { videos } from "../site-data";
 
-export const metadata: Metadata = {
-  title: "Videos",
+export const metadata: Metadata = pageMeta({
+  path: "/videos",
+  title: "Beat Making Videos: Watch Yari Cook Up",
   description:
-    "A vertical archive of Yari building beats, testing ideas, and letting the room react.",
-};
+    "Watch Yari make beats in FL Studio: studio clips, rough arrangements, and the decisions behind underground and trap beats you can buy.",
+});
 
 export default function VideosPage() {
   return (
