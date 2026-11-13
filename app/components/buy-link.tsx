@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { withAttribution } from "../lib/attribution";
 import { track } from "../lib/track";
 import { shopLink } from "../site-data";
 
@@ -31,7 +32,8 @@ export function BuyLink({
       rel="noopener"
       aria-label={ariaLabel}
       data-placement={placement}
-      onClick={() =>
+      onClick={(e) => {
+        e.currentTarget.href = withAttribution(e.currentTarget.href, placement);
         track("InitiateCheckout", {
           content_name: beat ?? "Beat store",
           content_category: "beats",
@@ -39,8 +41,8 @@ export function BuyLink({
           currency: "USD",
           value: price ?? 15,
           placement,
-        })
-      }
+        });
+      }}
     >
       {children}
     </a>
