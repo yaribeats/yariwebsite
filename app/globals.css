@@ -2469,3 +2469,27 @@ p {
 .track-progress input::-webkit-slider-thumb { background: var(--green); }
 .track-progress input::-moz-range-thumb { background: var(--green); }
 .track-progress input::-moz-range-progress { background: var(--green); }
+
+/* /15: Meta ad landing page. Headline matches the ad word for word. */
+.deal-hero {
+  padding: clamp(40px, 8vw, 96px) 0 clamp(32px, 6vw, 64px);
+}
+.deal-hero h1 {
+  margin: 10px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(64px, 17vw, 168px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.deal-hero h1 span { color: var(--green); }
+.deal-sub {
+  max-width: 34ch;
+  margin: 20px 0 28px;
+  font-size: clamp(18px, 2.4vw, 22px);
+  line-height: 1.4;
+  color: var(--muted);
+}
+@media (max-width: 520px) {
+  .deal-cta { width: 100%; }
+}
